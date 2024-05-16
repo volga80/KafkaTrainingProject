@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: MetricsProducer
+  kafka:
+    template:
+      default-topic=my-topic:
+    bootstrap-servers: localhost:9092
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      transaction-id-prefix: tx.
+server:
+  port: 8180
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    com.example: DEBUG
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
